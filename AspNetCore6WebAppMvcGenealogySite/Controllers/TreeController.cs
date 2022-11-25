@@ -14,10 +14,6 @@ namespace AspNetCore6WebAppMvcGenealogySite.Controllers
     public class TreeController : Controller
     {
         // GET: /<controller>/
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         public IActionResult Create()
         {
@@ -46,7 +42,7 @@ namespace AspNetCore6WebAppMvcGenealogySite.Controllers
 
         // POST : Tree
         [HttpPost]
-        public ActionResult CreateFamilyTree(FormCollection fc)
+        public IActionResult CreateFamilyTree(IFormCollection fc)
         {
             try
             {
@@ -55,16 +51,23 @@ namespace AspNetCore6WebAppMvcGenealogySite.Controllers
 
                 ViewData["FirstName"] = firstName;
                 ViewData["LastName"] = firstName;
-                ViewData["Error"] = null;
-                return RedirectToAction("Index");
+                return RedirectToAction("CreateFamilyTree");
             }
             catch
             {
-                ViewData["FirstName"] = null;
-                ViewData["LastName"] = null;
-                ViewData["Error"] = "Something went wrong";
-                return RedirectToAction("Index");
+            //     ViewData["FirstName"] = null;
+            //     ViewData["LastName"] = null;
+            //     ViewData["Error"] = "Something went wrong";
+                 return RedirectToAction("Index");
             }
+        }
+
+        public IActionResult Welcome(string name, int numTimes = 1)
+        {
+            ViewData["Message"] = "Hello " + name;
+            ViewData["NumTimes"] = numTimes;
+
+            return View();
         }
     }
 }
