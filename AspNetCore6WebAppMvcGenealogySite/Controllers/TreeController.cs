@@ -45,27 +45,27 @@ namespace AspNetCore6WebAppMvcGenealogySite.Controllers
 
 
         // POST : Tree
-        // [HttpPost]
-        // public ActionResult CreateFamilyTree(FormCollection fc)
-        // {
-        //     try
-        //     {
-        //         string firstName = fc["FirstName"];
-        //         string lastName = fc["LastName"];
+        [HttpPost]
+        public ActionResult CreateFamilyTree(FormCollection fc)
+        {
+            try
+            {
+                string firstName = fc["FirstName"];
+                string lastName = fc["LastName"];
 
-        //         HttpContext.Session["FirstName"] = firstName;
-        //         HttpContext.Session["LastName"] = firstName;
-        //         HttpContext.Session["Error"] = null;
-        //         return RedirectToAction("Index");
-        //     }
-        //     catch
-        //     {
-        //         HttpContext.Session["FirstName"] = null;
-        //         HttpContext.Session["LastName"] = null;
-        //         HttpContext.Session["Error"] = "Something went wrong";
-        //         return RedirectToAction("Index");
-        //     }
-        // }
+                ViewData["FirstName"] = firstName;
+                ViewData["LastName"] = firstName;
+                ViewData["Error"] = null;
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                ViewData["FirstName"] = null;
+                ViewData["LastName"] = null;
+                ViewData["Error"] = "Something went wrong";
+                return RedirectToAction("Index");
+            }
+        }
     }
 }
 
