@@ -1,0 +1,15 @@
+﻿@model AspNetCore6WebAppMvcGenealogySite.Models.Tutorial
+
+<form method="post" asp-controller="Home" asp-action="CreateTutorial">
+    <div class="form-group">
+        <label asp-for="FirstName">First Name</label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName">Last Name</label>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

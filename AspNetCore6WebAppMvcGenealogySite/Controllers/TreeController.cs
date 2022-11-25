@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AspNetCore6WebAppMvcGenealogySite.Models;
 using Microsoft.AspNetCore.Mvc;
 
+
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace AspNetCore6WebAppMvcGenealogySite.Controllers
@@ -43,27 +44,28 @@ namespace AspNetCore6WebAppMvcGenealogySite.Controllers
 
 
 
-        [HttpPost]
-        public ActionResult CreateFamilyTree(FormCollection fc)
-        {
-            try
-            {
-                string firstName = fc["FirstName"];
-                string lastName = fc["LastName"];
+        // POST : Tree
+        // [HttpPost]
+        // public ActionResult CreateFamilyTree(FormCollection fc)
+        // {
+        //     try
+        //     {
+        //         string firstName = fc["FirstName"];
+        //         string lastName = fc["LastName"];
 
-                Session["FirstName"] = firstName;
-                Session["LastName"] = firstName;
-                Session["Error"] = null;
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                Session["FirstName"] = null;
-                Session["LastName"] = null;
-                Session["Error"] = "Something went wrong";
-                return RedirectToAction("Index");
-            }
-        }
+        //         HttpContext.Session["FirstName"] = firstName;
+        //         HttpContext.Session["LastName"] = firstName;
+        //         HttpContext.Session["Error"] = null;
+        //         return RedirectToAction("Index");
+        //     }
+        //     catch
+        //     {
+        //         HttpContext.Session["FirstName"] = null;
+        //         HttpContext.Session["LastName"] = null;
+        //         HttpContext.Session["Error"] = "Something went wrong";
+        //         return RedirectToAction("Index");
+        //     }
+        // }
     }
 }
 
